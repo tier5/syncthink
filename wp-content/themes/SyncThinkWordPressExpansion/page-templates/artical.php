@@ -44,7 +44,7 @@ get_header(); ?>
                         <div class="recent_atc_wrap">
                            <span> Latest News</span>
 							<?php 
-								query_posts(array('post_type'=>'post','cat'=>4,'posts_per_page'=>'3','order'=>'ASC')); 
+								query_posts(array('post_type'=>'post','cat'=>4,'posts_per_page'=>'3','order'=>'DESC')); 
 							$i=1; while(have_posts()) :  the_post();
 						?>
                             <div class="article_post  <?php if($i==3){ echo"rt_none"; } ?>">
@@ -102,7 +102,7 @@ get_header(); ?>
                         <div class="recent_atc_wrap">
                             <span>Latest Research</span>
 							<?php 
-								query_posts(array('post_type'=>'post','cat'=>6,'posts_per_page'=>'3','order'=>'ASC')); 
+								query_posts(array('post_type'=>'post','cat'=>6,'posts_per_page'=>'3','order'=>'DESC')); 
 							 $i=1; while(have_posts()) : the_post();
 						?>
                             <div class="article_post <?php if($i==3){ echo"rt_none"; } ?>">

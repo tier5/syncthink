@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri()?>/css/responsive.css" />
 
 </head>
+<script type="text/javascript" src="//cdn.callrail.com/companies/252556179/37ebd9ff4c3a1e238a91/12/swap.js"></script>
 <body>
 
 <div class="wrapper article_wrapper">

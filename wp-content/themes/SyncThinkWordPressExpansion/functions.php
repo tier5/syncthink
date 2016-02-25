@@ -548,3 +548,19 @@ function get_category_tags($args) {
     }
     return $tags;
 }
+add_filter( 'wpcf7_validate_text', 'custom_number', 20, 2 );
+
+function custom_number( $result, $tag ) {
+$tag = new WPCF7_Shortcode( $tag );
+if ( $tag->name = 'tel-283' ){
+    $number = isset( $_POST['tel-283'] ) ? trim( $_POST['tel-283'] ) : '';
+    //if (!preg_match( '/^(1|1)\d{9}/', $number )) 
+if (!preg_match( '/^([1]-)?[0-9]{3}-[0-9]{3}-[0-9]{4}$/i', $number )){
+       $result->invalidate( $tag, "Enter correct number." );
+    }
+//elseif(!preg_match( '/^([1]-)?[0-9]{3} [0-9]{3} [0-9]{4}$/i', $number )){
+     //  $result->invalidate( $tag, "Enter correct number." );
+    //}
+}
+return $result;
+}
