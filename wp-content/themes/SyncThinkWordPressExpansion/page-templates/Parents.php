@@ -50,10 +50,10 @@ get_header(); ?>
 			</a> 
 		<?php endforeach; ?>
 	</div>
-						<?php 
-					wp_reset_query();
+				<?php 
+				wp_reset_query();
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-				query_posts("post_type=post&order=DESC&cat=5&posts_per_page=-1&paged=".$paged);
+				query_posts("post_type=post&order=DESC&cat=5&posts_per_page=20&paged=".$paged);
 				while (have_posts()) : the_post(); 
 					?>
 					<div Class="post <?php $tags = get_the_tags(get_the_id()); foreach($tags as $tag) { echo $tag->slug; echo " "; } ?>">
@@ -80,6 +80,7 @@ get_header(); ?>
 						
 					</div>
 					<div class="pagination">
+						
 					<?php 
 							if(function_exists('wp_paginate')) 
 							{

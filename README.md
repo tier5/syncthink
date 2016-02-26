@@ -1,2 +1,2 @@
 # syncthink
-syncthink repo
+syncthink repo test
