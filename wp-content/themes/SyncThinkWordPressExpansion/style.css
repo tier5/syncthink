@@ -1649,3 +1649,4 @@ select.wpcf7-form-control.wpcf7-select.wpcf7-validates-as-required.select { widt
 .article_post  a{padding-bottom: 0;}
 .recent_atc_wrap .outer_brdr{margin: 0 auto 29px !important;}
 select.wpcf7-form-control.wpcf7-select.select{width:100%;}
+.select_type {width: 100%;}

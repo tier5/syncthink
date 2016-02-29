@@ -548,7 +548,7 @@ function get_category_tags($args) {
     }
     return $tags;
 }
-add_filter( 'wpcf7_validate_text', 'custom_number', 20, 2 );
+/*add_filter( 'wpcf7_validate_text', 'custom_number', 20, 2 );
 
 function custom_number( $result, $tag ) {
 $tag = new WPCF7_Shortcode( $tag );
@@ -563,4 +563,4 @@ if (!preg_match( '/^([1]-)?[0-9]{3}-[0-9]{3}-[0-9]{4}$/i', $number )){
     //}
 }
 return $result;
-}
+}*/
