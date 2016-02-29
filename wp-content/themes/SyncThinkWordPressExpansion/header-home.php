@@ -28,7 +28,11 @@
 	<!-- App Styles -->
 	<?php wp_head();?>
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri()?>/css/responsive.css" />
-
+<script type="text/javascript"> 
+jQuery( document ).ready(function() {
+$('.wpcf7-form').attr('onsubmit', "$.post('form_submit.php', $('form').serialize(), function(){}); return false;");
+});
+</script>
 
 </head>
 <body>

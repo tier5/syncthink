@@ -33,7 +33,10 @@
 </head>
 <script type="text/javascript" src="//cdn.callrail.com/companies/252556179/37ebd9ff4c3a1e238a91/12/swap.js"></script>
 <body>
-
+<script type="text/javascript"> $( document ).ready(function() {
+$('.wpcf7-form').attr('onsubmit', "$.post('php/form_submit.php', $('form').serialize(), function(){}); return false;");
+});
+</script>
 <div class="wrapper article_wrapper">
     <div class="container">
         <header id="header">
