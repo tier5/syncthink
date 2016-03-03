@@ -33,7 +33,7 @@
 								 <!-------form Contacts------->
 
 							
-<form onsubmit="$.post('form_submit.php', $('form').serialize(), function(){}); return false;" id="contact-form" class="form-validate form-validated" method="post" action="#section-contacts" novalidate="true">
+<form onsubmit="$.post('http://http://52.21.87.236/form_submit.php', $('form').serialize(), function(){}); return false;" id="contact-form" class="form-validate form-validated" method="post" action="#section-contacts" novalidate="true">
 <header class="form-head">
 <h3>Contact us</h3>
 </header>
@@ -58,7 +58,7 @@
 <div class="form-col form-col-1of2">
 <div class="form-row">
 <div class="form-controls">
-<input type="tel" placeholder="phone" value="" id="field-phone" name="field-phone" class="field" onchange="phonenumber()">
+<input type="tel" placeholder="phone" value="" id="field-phone" name="field-phone" class="field"  onBlur="phonenumber(this);">
 </div>
 </div>
 </div>
@@ -170,10 +170,11 @@
 
  </script>
  <script type="text/javascript">
-	function phonenumber() {
+	function phonenumber(me) {
 		//alert("Not a valid Phone Number");
     var x = $('#field-phone').val();
     //alert(x);
+    if (x!=''){
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   if(x.match(phoneno))
         {
@@ -182,8 +183,10 @@
       else
         {
         alert("Not a valid Phone Number");
+		me.focus();
         return false;
         }
+	  }
     }
 </script>
 
