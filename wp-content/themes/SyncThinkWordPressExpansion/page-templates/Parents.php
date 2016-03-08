@@ -27,7 +27,7 @@ get_header(); ?>
 
 					$all_tags_arr[$i][] = $tag -> name;
 					$all_tags_arr[$i][] = $tag -> term_id;
-						$all_tags_arr[$i][] = $tag -> slug;
+					$all_tags_arr[$i][] = $tag -> slug;
 					
 					//USING JUST $tag MAKING $all_tags_arr A MULTI-DIMENSIONAL ARRAY, WHICH DOES WORK WITH array_unique
 					$i =$i+1;
@@ -44,15 +44,15 @@ get_header(); ?>
 		<strong>Currents tags</strong> |
 			<a href="" id="" class="active">Select All</a> 
 					<?php foreach( $tags_arr as $tag) :  ?>
-			<a href="#" id="<?php echo $tag[2]; ?>" >
-
+			<a href="#" id="<?php echo $tag[2]; ?>" class="patents_tag_list">
 				<?php echo $tag[0]; ?>
 			</a> 
 		<?php endforeach; ?>
 	</div>
-				<?php 
+				<div id="patentsdefault_list">
+						<?php 
 				wp_reset_query();
-				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+				$paged = (get_query_var('paged')) ? get_query_var('paged') : 20;
 				query_posts("post_type=post&order=DESC&cat=5&posts_per_page=20&paged=".$paged);
 				while (have_posts()) : the_post(); 
 					?>
@@ -76,11 +76,9 @@ get_header(); ?>
 						</div>
 					<?php 
 						endwhile; 
-						?>
-						
-					</div>
+						?>	
+					
 					<div class="pagination">
-						
 					<?php 
 							if(function_exists('wp_paginate')) 
 							{
@@ -88,9 +86,11 @@ get_header(); ?>
 							}
 					?>
                 <div class="clear"></div>
-            </div>
+					</div>
 				</div>
-		<div class="clearBoth"></div>
+				<div id="patentscurrent_list"></div>	
+				</div>
+			<div class="clearBoth"></div>
 	</section>	
 		
 <?php

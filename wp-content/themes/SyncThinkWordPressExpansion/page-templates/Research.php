@@ -9,7 +9,7 @@
 
 get_header(); ?>
  
-  <section class="reserach_wrap archive">
+<section class="reserach_wrap archive">
                 <div class="inner_container">
                     <div class="news_wrapper">
                         <h3> <span class="icon"><img src="<?php echo get_stylesheet_directory_uri()?>/css/images/icon2.png" alt="" /></span>Research Archives</h3>
@@ -41,19 +41,20 @@ get_header(); ?>
 
 	
 ?>	<div class="currentsTags">
+	
 		<strong>Currents tags</strong> |
 			<a href="" id="" class="active">Select All</a> 
-					<?php foreach( $tags_arr as $tag) :  ?>
-			<a href="#" id="<?php echo $tag[2]; ?>" >
-
+				<?php foreach( $tags_arr as $tag) :  ?>
+			<a href="#" id="<?php echo $tag[2]; ?>" class="tag_list" name ="<?php echo $tag[2]; ?>" class="cur_tag">
 				<?php echo $tag[0]; ?>
 			</a> 
 		<?php endforeach; ?>
 	</div>
+	<div id="default_list">
 						<?php 
 						wp_reset_query();
-				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-				query_posts("post_type=post&order=DESC&cat=6&posts_per_page=-1&paged=".$paged);
+				$paged = (get_query_var('paged')) ? get_query_var('paged') : 2;
+				query_posts("post_type=post&order=DESC&cat=6&posts_per_page=20&paged=".$paged);
 				while (have_posts()) : the_post(); 
 					?>
 				<div Class="post <?php $tags = get_the_tags(get_the_id()); foreach($tags as $tag) { echo $tag->slug; echo " "; } ?>">
@@ -61,7 +62,7 @@ get_header(); ?>
                         <span class="src_name"><?php the_field('add_name_of_source');?><strong>|</strong><?php the_field('add_publication_date'); ?></span>
 						<div class="tags"> <strong>Tags |</strong> <?php  echo get_the_tag_list('',' ','');  ?></div>
                         <p class="para"><?php 
-					$content = get_the_content(); 
+							$content = get_the_content(); 
 							echo substr(strip_tags($content), 0, 350) . '..'; 
 						?></p>
                         <a href="<?php the_field('add_view_link'); ?>" target="_blank" class="article">Full Article<i><img src="<?php echo get_stylesheet_directory_uri()?>/css/images/arrow.png" alt="" /></i></a>
@@ -83,6 +84,9 @@ get_header(); ?>
                 <div class="clear"></div>
             </div>
 				</div>
+				<div id="current_list"></div>
+				</div>
+				
 		
 	</section>	
 <?php
