@@ -19,6 +19,7 @@
 //	});
 
 /* --------------- STICKY HEADER -----------------*/
+
 $(document).ready(function(){
 	//var tagcon="";
 	//var vax=0;

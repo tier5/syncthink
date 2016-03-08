@@ -5,7 +5,7 @@ $json=$_REQUEST;
 //print_r($json);
 $string = implode(' ', $json);
 $name= $_POST['name'];
-echo $name; 
+//echo $name; 
 $args = array(
 	'post_type'=>'post',
 	'cat'=>6,

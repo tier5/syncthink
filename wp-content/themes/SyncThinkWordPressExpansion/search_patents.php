@@ -5,7 +5,7 @@ $json=$_REQUEST;
 //print_r($json);
 $string = implode(' ', $json);
 $pname= $_POST['pname'];
-echo $name; 
+
 				 
 					wp_reset_query();
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
