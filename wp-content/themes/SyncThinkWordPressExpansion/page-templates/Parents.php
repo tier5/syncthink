@@ -54,7 +54,7 @@ get_header(); ?>
 						<?php 
 				wp_reset_query();
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 20;
-				query_posts("post_type=post&order=DESC&cat=5&posts_per_page=20&paged=".$paged);
+				query_posts("post_type=post&order=DESC&cat=5&posts_per_page=-1&paged=".$paged);
 				while (have_posts()) : the_post(); 
 					?>
 					<div Class="post <?php $tags = get_the_tags(get_the_id()); foreach($tags as $tag) { echo $tag->slug; echo " "; } ?>">

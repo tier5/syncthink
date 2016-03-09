@@ -10,7 +10,7 @@
 
 get_header(); ?>
  
-<section class="reserach_wrap archive">
+ <section class="reserach_wrap archive">
                 <div class="inner_container">
                     <div class="news_wrapper">
                         <h3> <span class="icon"><img src="<?php echo get_stylesheet_directory_uri()?>/css/images/icon2.png" alt="" /></span>Research Archives</h3>
@@ -50,12 +50,13 @@ get_header(); ?>
 				<?php echo $tag[0]; ?>
 			</a> 
 		<?php endforeach; ?>
+		
 	</div>
 	<div id="default_list">
 						<?php 
 						wp_reset_query();
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 2;
-				query_posts("post_type=post&order=DESC&cat=6&posts_per_page=20&paged=".$paged);
+				query_posts("post_type=post&order=DESC&cat=6&posts_per_page=-1&paged=".$paged);
 				while (have_posts()) : the_post(); 
 					?>
 				<div Class="post <?php $tags = get_the_tags(get_the_id()); foreach($tags as $tag) { echo $tag->slug; echo " "; } ?>">
