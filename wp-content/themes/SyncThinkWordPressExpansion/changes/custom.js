@@ -19,10 +19,11 @@
 //	});
 
 /* --------------- STICKY HEADER -----------------*/
-
 var arr=[];
 var patentsarr=[];
 $(document).ready(function(){
+	//var tagcon="";
+	//var vax=0;
 	i=0;
 	
 	
@@ -65,7 +66,7 @@ $(document).ready(function(){
 			//alert(NumberString);
 			console.log(patentsarr);
 			$.ajax({method: "POST",
-				url: "http://52.21.87.236/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
+				url: "http://localhost/syncthinkbackup/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
 				data: { pname: NumberString },
 				success: function(result){
 				$('#patentsdefault_list').css('display','none');	
@@ -106,7 +107,7 @@ $(document).ready(function(){
 			//alert(NumberString);
 			console.log(arr);
 			$.ajax({method: "POST",
-				url: "http://52.21.87.236/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
+				url: "http://localhost/syncthinkbackup/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
 				data: { name: NumberString },
 				success: function(result){
 				//alert(result);
@@ -175,10 +176,10 @@ $('.map iframe').on('load', function(){
 			}
 			
 			var NumberString = arr.join(', ');
-			//alert(NumberString);
+			alert(NumberString);
 			console.log(arr);
 			$.ajax({method: "POST",
-				url: "http://52.21.87.236/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
+				url: "http://localhost/syncthinkbackup/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
 				data: { name: NumberString },
 				success: function(result){
 				//alert(result);
@@ -216,7 +217,7 @@ $('.map iframe').on('load', function(){
 			//alert(NumberString);
 			console.log(patentsarr);
 			$.ajax({method: "POST",
-				url: "http://52.21.87.236/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
+				url: "http://localhost/syncthinkbackup/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
 				data: { pname: NumberString },
 				success: function(result){
 				$('#patentsdefault_list').css('display','none');	
@@ -225,5 +226,4 @@ $('.map iframe').on('load', function(){
 				}
 			});
 	});
-
 

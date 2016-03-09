@@ -1,12 +1,11 @@
 <?php
 /**
- * Template Name: Patents Page Template
+ * Template Name: Patentsnew Page Template
  *
  * @package WordPress
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
- 
 
 get_header(); ?>
 <section class="article_wrap archive">

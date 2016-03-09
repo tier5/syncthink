@@ -6,11 +6,10 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
- 
 
 get_header(); ?>
  
- <section class="reserach_wrap archive">
+  <section class="reserach_wrap archive">
                 <div class="inner_container">
                     <div class="news_wrapper">
                         <h3> <span class="icon"><img src="<?php echo get_stylesheet_directory_uri()?>/css/images/icon2.png" alt="" /></span>Research Archives</h3>
@@ -50,7 +49,7 @@ get_header(); ?>
 				<?php echo $tag[0]; ?>
 			</a> 
 		<?php endforeach; ?>
-		
+		<input type='text' id="all_val">
 	</div>
 	<div id="default_list">
 						<?php 
