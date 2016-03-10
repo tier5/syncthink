@@ -22,10 +22,7 @@
 
 var arr=[];
 var patentsarr=[];
-var newsarr=[];
 $(document).ready(function(){
-	//var tagcon="";
-	//var vax=0;
 	i=0;
 	
 	
@@ -64,53 +61,15 @@ $(document).ready(function(){
 				$(this).addClass('active');
 			}
 			
-			var NumberString = patentsarr.join('+');
+			var NumberString = patentsarr.join(', ');
 			//alert(NumberString);
 			console.log(patentsarr);
 			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
+				url: "http://52.21.87.236/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
 				data: { pname: NumberString },
 				success: function(result){
 				$('#patentsdefault_list').css('display','none');	
 				$('#patentscurrent_list').html(result);	
-				//alert(result);
-				}
-			});
-				
-			 	
-		});
-		$('.news_tag_list').click(function(r){
-			r.preventDefault();
-			//var tagname = $(this).attr('name');
-			var cname = $(this).attr('id');
-			$('.archive .post').css('display','none');
-			
-			$('.archive .post.'+cname).css('display','block');
-			
-			//$('.archive .currentsTags a').removeClass('curtag');
-			
-			//$(this).addClass('tagactive');
-			var found=jQuery.inArray(cname,newsarr)
-			if(found >=0)
-			{
-				newsarr.splice(found,1);
-				$(this).removeClass('active');
-			}
-			else
-			{
-				newsarr.push(cname);
-				$(this).addClass('active');
-			}
-			
-			var NumberString = newsarr.join('+');
-			//alert(NumberString);
-			console.log(newsarr);
-			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_news.php",
-				data: { nname: NumberString },
-				success: function(result){
-				$('#newsdefault_list').css('display','none');	
-				$('#newscurrent_list').html(result);	
 				//alert(result);
 				}
 			});
@@ -143,11 +102,11 @@ $(document).ready(function(){
 				$(this).addClass('active');
 			}
 			
-			var NumberString = arr.join('+');
+			var NumberString = arr.join(', ');
 			//alert(NumberString);
 			console.log(arr);
 			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
+				url: "http://52.21.87.236/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
 				data: { name: NumberString },
 				success: function(result){
 				//alert(result);
@@ -189,9 +148,8 @@ $('.map iframe').on('load', function(){
 			});
     
 		});
-		
-		$( document ).on( "click", ".tag_listresarch", function(f) {
-			f.preventDefault();
+		$(document).delegate(".tag_listresarch", "click", function(){	
+			//e.preventDefault();
 			//alert('hii');
 			
 			var cname = $(this).attr('id');
@@ -208,20 +166,19 @@ $('.map iframe').on('load', function(){
 			if(found >=0)
 			{
 				arr.splice(found,1);
-				$('#'+cname).removeClass('active');
+				$(this).removeClass('active');
 			}
 			else
 			{
 				arr.push(cname);
-				//alert(cname);
-				$('#'+cname).addClass('active');
+				$(this).addClass('active');
 			}
 			
-			var NumberString = arr.join('+');
+			var NumberString = arr.join(', ');
 			//alert(NumberString);
 			console.log(arr);
 			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
+				url: "http://52.21.87.236/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
 				data: { name: NumberString },
 				success: function(result){
 				//alert(result);
@@ -231,9 +188,7 @@ $('.map iframe').on('load', function(){
 				}
 			});
 	});
-
-	//$(document).delegate(".patenttag_list", "click", function(){	
-	$( document ).on( "click", ".patenttag_list", function(f) {
+	$(document).delegate(".patenttag_list", "click", function(){	
 			//e.preventDefault();
 			//alert('hii');
 			
@@ -249,60 +204,23 @@ $('.map iframe').on('load', function(){
 			if(found >=0)
 			{
 				patentsarr.splice(found,1);
-				$('#'+cname).removeClass('active');
+				$(this).removeClass('active');
 			}
 			else
 			{
 				patentsarr.push(cname);
-				$('#'+cname).addClass('active');
+				$(this).addClass('active');
 			}
 			
-			var NumberString = patentsarr.join('+');
+			var NumberString = patentsarr.join(', ');
 			//alert(NumberString);
 			console.log(patentsarr);
 			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
+				url: "http://52.21.87.236/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
 				data: { pname: NumberString },
 				success: function(result){
 				$('#patentsdefault_list').css('display','none');	
 				$('#patentscurrent_list').html(result);	
-				//alert(result);
-				}
-			});
-	});
-	$( document ).on( "click", ".newstag_list", function(f) {
-			//e.preventDefault();
-			//alert('hii');
-			
-			var cname = $(this).attr('id');
-			$('.archive .post').css('display','none');
-			
-			$('.archive .post.'+cname).css('display','block');
-			
-			//$('.archive .currentsTags a').removeClass('curtag');
-			
-			//$(this).addClass('tagactive');
-			var found=jQuery.inArray(cname,newsarr)
-			if(found >=0)
-			{
-				newsarr.splice(found,1);
-				$('#'+cname).removeClass('active');
-			}
-			else
-			{
-				newsarr.push(cname);
-				$('#'+cname).addClass('active');
-			}
-			
-			var NumberString = newsarr.join('+');
-			//alert(NumberString);
-			console.log(newsarr);
-			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_news.php",
-				data: { nname: NumberString },
-				success: function(result){
-				$('#newsdefault_list').css('display','none');	
-				$('#newscurrent_list').html(result);	
 				//alert(result);
 				}
 			});

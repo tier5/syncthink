@@ -8,8 +8,7 @@
  */
 
 get_header(); ?>
- 
-  <section class="article_wrap archive">
+ <section class="article_wrap archive">
                 <div class="inner_container">
                     <div class="news_wrapper">
 					 <h3> <span class="icon"><img src="<?php echo get_stylesheet_directory_uri()?>/css/images/icon.png" alt="" /></span>Concussion News</h3>
@@ -45,27 +44,36 @@ get_header(); ?>
 		<strong>Currents tags</strong>| 
 			<a href="" id="" class="active">Select All</a> 
 					<?php foreach( $tags_arr as $tag) :  ?>
-			<a href="#" id="<?php echo $tag[2]; ?>" >
-
+			<a href="#" id="<?php echo $tag[2]; ?>" class="news_tag_list" name ="<?php echo $tag[2]; ?>" class="cur_tag">
 				<?php echo $tag[0]; ?>
-			</a> 
+			</a>  
 		<?php  endforeach;
 		
 			wp_reset_query();?>
 	</div>
 					 
-					
+				<div id="newsdefault_list">
 					<?php 
 					
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-				query_posts("post_type=post&cat=4&order=DESC&posts_per_page=-1&paged=".$paged);
+				query_posts("post_type=post&cat=4&order=DESC&posts_per_page=20&paged=".$paged);
 				while (have_posts()) : the_post(); 
 					?>
                        
 				<div Class="post <?php $tags = get_the_tags(get_the_id()); foreach($tags as $tag) { echo $tag->slug; echo " "; } ?>">		
                         <h3 class="news_hdng"><?php the_title();?></h3>
                         <span class="src_name"><?php the_field('add_name_of_source');?> <strong>|</strong><?php the_field('add_publication_date'); ?></span>
-						<div class="tags"> <strong>Tags |</strong> <?php  echo get_the_tag_list('',' ','');  ?></div>
+						<div class="tags"> <strong>Tags |</strong> 
+						<?php  //echo get_the_tag_list('',' ','');  ?>
+						<?php
+							$tags = wp_get_post_tags($post->ID);
+							  if ($tags) {
+								foreach($tags as $tag) {
+									echo '<a id="'.$tag -> slug.'" class="newstag_list" href="#" title="" >' . $tag->name.'</a> ';
+								}
+							  }
+							?>
+						</div>
 
                         <p class="para"><?php 
 					$content = get_the_content(); 
@@ -90,6 +98,8 @@ get_header(); ?>
 					?>
                 <div class="clear"></div>
             </div>
+            </div>
+				<div id="newscurrent_list"></div>
                 </div>
                 
       </section>

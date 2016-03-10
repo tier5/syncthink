@@ -2,13 +2,13 @@
 		include('../../../wp-load.php'); 
 		$json=$_REQUEST;
 		$string = implode(' ', $json);
-		$pname= $_POST['pname'];
+		$nname= $_POST['nname'];
 		
-		//echo $pname; 
+		//echo $nname; 
 				 
 					wp_reset_query();
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-				query_posts("post_type=post&order=DESC&cat=5&tag=".$pname."&posts_per_page=-1&paged=".$paged);
+				query_posts("post_type=post&order=DESC&cat=4&tag=".$nname."&posts_per_page=-1&paged=".$paged);
 				if ( have_posts() ) :
 				while (have_posts()) : the_post(); 
 					?>
@@ -26,7 +26,7 @@
 							$tags = wp_get_post_tags($post->ID);
 							  if ($tags) {
 								foreach($tags as $tag) {
-									echo '<a id="'.$tag -> slug.'" class="patenttag_list" href="#" title="" >' . $tag->name.'</a> ';
+									echo '<a id="'.$tag -> slug.'" class="newstag_list" href="#" title="" >' . $tag->name.'</a> ';
 								}
 							  }
 							?>
