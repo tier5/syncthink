@@ -85,8 +85,7 @@ get_header(); ?>
 						endwhile; 
 						?>
 						<div class="clearBoth"></div>
-					</div>
-					<div class="pagination">
+						<div class="pagination">
 					<?php 
 							if(function_exists('wp_paginate')) 
 							{
@@ -95,10 +94,12 @@ get_header(); ?>
 					?>
                 <div class="clear"></div>
             </div>
-				</div>
+					</div>
+					
+				
 				<div id="current_list"></div>
 				</div>
-				
+				</div>
 		
 	</section>	
 <?php
