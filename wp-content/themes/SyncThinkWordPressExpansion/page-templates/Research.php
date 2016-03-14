@@ -55,8 +55,9 @@ get_header(); ?>
 	<div id="default_list">
 						<?php 
 						wp_reset_query();
-				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-				query_posts("post_type=post&order=DESC&cat=6&posts_per_page=20&paged=".$paged);
+				//$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+				//query_posts("post_type=post&order=DESC&cat=6&posts_per_page=20&paged=".$paged);
+				query_posts("post_type=post&order=DESC&cat=6");
 				while (have_posts()) : the_post(); 
 					?>
 				<div Class="post <?php $tags = get_the_tags(get_the_id()); foreach($tags as $tag) { echo $tag->slug; echo " "; } ?>">
@@ -87,10 +88,10 @@ get_header(); ?>
 						<div class="clearBoth"></div>
 						<div class="pagination">
 					<?php 
-							if(function_exists('wp_paginate')) 
-							{
-								wp_paginate();
-							}
+							//if(function_exists('wp_paginate')) 
+							//{
+								//wp_paginate();
+							//}
 					?>
                 <div class="clear"></div>
             </div>
@@ -98,6 +99,7 @@ get_header(); ?>
 					
 				
 				<div id="current_list"></div>
+				<div id="page-nav"></div>
 				</div>
 				</div>
 		

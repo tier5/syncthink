@@ -100,6 +100,7 @@ get_header(); ?>
             </div>
             </div>
 				<div id="newscurrent_list"></div>
+				<div id="page-nav"></div>
                 </div>
                 
       </section>

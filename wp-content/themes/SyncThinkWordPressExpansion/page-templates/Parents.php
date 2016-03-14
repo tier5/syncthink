@@ -99,7 +99,8 @@ get_header(); ?>
                 <div class="clear"></div>
 					</div>
 				</div>
-				<div id="patentscurrent_list"></div>	
+				<div id="patentscurrent_list"></div>
+				<div id="page-nav"></div>	
 				</div>
 			<div class="clearBoth"></div>
 	</section>	

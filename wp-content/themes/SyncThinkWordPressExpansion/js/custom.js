@@ -68,12 +68,14 @@ $(document).ready(function(){
 			//alert(NumberString);
 			console.log(patentsarr);
 			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
+				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
 				data: { pname: NumberString },
 				success: function(result){
-				$('#patentsdefault_list').css('display','none');	
+				//$('#patentsdefault_list').css('display','none');
+				$('#patentsdefault_list').remove();	
 				$('#patentscurrent_list').html(result);	
 				//alert(result);
+				simplepage();
 				}
 			});
 				
@@ -106,12 +108,14 @@ $(document).ready(function(){
 			//alert(NumberString);
 			console.log(newsarr);
 			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_news.php",
+				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/search_news.php",
 				data: { nname: NumberString },
 				success: function(result){
-				$('#newsdefault_list').css('display','none');	
+				//$('#newsdefault_list').css('display','none');
+				$('#newsdefault_list').remove();	
 				$('#newscurrent_list').html(result);	
 				//alert(result);
+				simplepage();
 				}
 			});
 				
@@ -147,13 +151,14 @@ $(document).ready(function(){
 			//alert(NumberString);
 			console.log(arr);
 			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
+				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
 				data: { name: NumberString },
 				success: function(result){
 				//alert(result);
-				$('#default_list').css('display','none');	
+				//$('#default_list').css('display','none');	
+				$('#default_list').remove();
 				$('#current_list').html(result);	
-				
+				simplepage();
 				}
 			});
 			
@@ -221,11 +226,12 @@ $('.map iframe').on('load', function(){
 			//alert(NumberString);
 			console.log(arr);
 			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
+				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
 				data: { name: NumberString },
 				success: function(result){
 				//alert(result);
-				$('#default_list').css('display','none');	
+				//$('#default_list').css('display','none');	
+				$('#patentsdefault_list').remove();
 				$('#current_list').html(result);	
 				
 				}
@@ -261,10 +267,11 @@ $('.map iframe').on('load', function(){
 			//alert(NumberString);
 			console.log(patentsarr);
 			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
+				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
 				data: { pname: NumberString },
 				success: function(result){
-				$('#patentsdefault_list').css('display','none');	
+				//$('#patentsdefault_list').css('display','none');
+				$('#patentsdefault_list').remove();	
 				$('#patentscurrent_list').html(result);	
 				//alert(result);
 				}
@@ -298,14 +305,51 @@ $('.map iframe').on('load', function(){
 			//alert(NumberString);
 			console.log(newsarr);
 			$.ajax({method: "POST",
-				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_news.php",
+				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/search_news.php",
 				data: { nname: NumberString },
 				success: function(result){
-				$('#newsdefault_list').css('display','none');	
+				//$('#newsdefault_list').css('display','none');	
+				$('#newsdefault_list').remove();
 				$('#newscurrent_list').html(result);	
 				//alert(result);
+				simplepage();
 				}
 			});
 	});
 
+jQuery(function simplepage($) {
+    // Grab whatever we need to paginate
+    var pageParts = $(".post");
 
+    // How many parts do we have?
+    var numPages = pageParts.length;
+    //alert(numPages);
+    // How many parts do we want per page?
+    var perPage = 2;
+
+    // When the document loads we're on page 1
+    // So to start with... hide everything else
+    pageParts.slice(perPage).hide();
+
+    // Apply simplePagination to our placeholder
+    
+    $("#page-nav").pagination({
+        items: numPages,
+        itemsOnPage: perPage,
+        cssTheme: "light-theme",
+        // We implement the actual pagination
+        //   in this next function. It runs on
+        //   the event that a user changes page
+        onPageClick: function(pageNum) {
+            // Which page parts do we show?
+            var start = perPage * (pageNum - 1);
+            var end = start + perPage;
+
+            // First hide all page parts
+            // Then show those just for our page
+            pageParts.hide()
+                     .slice(start, end).show();
+        }
+    });
+
+});

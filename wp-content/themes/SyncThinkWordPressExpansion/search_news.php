@@ -1,5 +1,10 @@
 <?php
-		include('../../../wp-load.php'); 
+		include('../../../wp-load.php');?>
+	<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri()?>/css/simplePagination.css"/>
+	<script src="<?php echo get_stylesheet_directory_uri()?>/js/jquery-2.0.3.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri()?>/js/jquery.simplePagination.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri()?>/js/main.js"></script>
+		<?php  
 		$json=$_REQUEST;
 		$string = implode(' ', $json);
 		$nname= $_POST['nname'];
@@ -7,8 +12,9 @@
 		//echo $nname; 
 				 
 					wp_reset_query();
-				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-				query_posts("post_type=post&order=DESC&cat=4&tag=".$nname."&posts_per_page=-1&paged=".$paged);
+				//$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+				//query_posts("post_type=post&order=DESC&cat=4&tag=".$nname."&posts_per_page=-1&paged=".$paged);
+				query_posts("post_type=post&order=DESC&cat=4 &tag=".$nname);
 				if ( have_posts() ) :
 				while (have_posts()) : the_post(); 
 					?>
@@ -49,10 +55,10 @@
 					
 					<div class="pagination">
 					<?php 
-							if(function_exists('wp_paginate')) 
-							{
-								wp_paginate();
-							}
+							//if(function_exists('wp_paginate')) 
+							//{
+							//	wp_paginate();
+							//}
 					?>
                 <div class="clear"></div>
 					</div>

@@ -1,25 +1,30 @@
 <?php
-include('../../../wp-load.php'); 
-//echo '123';
-$json=$_REQUEST;
-//print_r($json);
-$string = implode(' ', $json);
-$name= $_POST['name'];
+include('../../../wp-load.php'); ?>
+<link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri()?>/css/simplePagination.css"/>
+	<script src="<?php echo get_stylesheet_directory_uri()?>/js/jquery-2.0.3.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri()?>/js/jquery.simplePagination.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri()?>/js/main.js"></script>
+<?php
 
-//echo $name; 
-$args = array(
-	'post_type'=>'post',
-	'cat'=>6,
-	'order' => 'DESC',
-    'posts_per_page' => 20,
-    'tag' => $name   
-);
+		$json=$_REQUEST;
+
+		$string = implode(' ', $json);
+		$name= $_POST['name'];
+
+		$args = array(
+			'post_type'=>'post',
+			'cat'=>6,
+			'order' => 'DESC',
+			'posts_per_page' => 20,
+			'tag' => $name   
+		);
 
 //$query = new WP_Query($args);
 
 				wp_reset_query();
-				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-				query_posts("post_type=post&order=DESC&cat=6 &tag=".$name."&posts_per_page=-1&paged=".$paged);
+				//$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+				//query_posts("post_type=post&order=DESC&cat=6 &tag=".$name."&posts_per_page=-1&paged=".$paged);
+				query_posts("post_type=post&order=DESC&cat=6 &tag=".$name);
 				if ( have_posts() ) :
 				while (have_posts()) : the_post(); 
 				
@@ -59,10 +64,10 @@ $args = array(
 					</div>
 					<div class="pagination">
 					<?php 
-							if(function_exists('wp_paginate')) 
-							{
-								wp_paginate();
-							}
+							//if(function_exists('wp_paginate')) 
+							//{
+							//	wp_paginate();
+							//}
 					?>
                 <div class="clear"></div>
             </div>

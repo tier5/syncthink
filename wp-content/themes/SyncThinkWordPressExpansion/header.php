@@ -29,14 +29,14 @@
 	
 	<?php wp_head(); ?>
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri()?>/css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri()?>/css/simplePagination.css"/>
+	<script src="<?php echo get_stylesheet_directory_uri()?>/js/jquery-2.0.3.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri()?>/js/jquery.simplePagination.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri()?>/js/main.js"></script>
 
 </head>
 <script type="text/javascript" src="//cdn.callrail.com/companies/252556179/37ebd9ff4c3a1e238a91/12/swap.js"></script>
 <body>
-<script type="text/javascript"> $( document ).ready(function() {
-$('.wpcf7-form').attr('onsubmit', "$.post('php/form_submit.php', $('form').serialize(), function(){}); return false;");
-});
-</script>
 <div class="wrapper article_wrapper">
     <div class="container">
         <header id="header">
