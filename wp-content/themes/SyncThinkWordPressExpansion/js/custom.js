@@ -327,7 +327,7 @@ jQuery(function simplepage($) {
     var numPages = pageParts.length;
     //alert(numPages);
     // How many parts do we want per page?
-    var perPage = 2;
+    var perPage = 20;
 
     // When the document loads we're on page 1
     // So to start with... hide everything else
