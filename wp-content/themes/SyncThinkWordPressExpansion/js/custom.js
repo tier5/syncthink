@@ -68,7 +68,7 @@ $(document).ready(function(){
 			//alert(NumberString);
 			console.log(patentsarr);
 			$.ajax({method: "POST",
-				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
+				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
 				data: { pname: NumberString },
 				success: function(result){
 				//$('#patentsdefault_list').css('display','none');
@@ -108,7 +108,7 @@ $(document).ready(function(){
 			//alert(NumberString);
 			console.log(newsarr);
 			$.ajax({method: "POST",
-				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/search_news.php",
+				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_news.php",
 				data: { nname: NumberString },
 				success: function(result){
 				//$('#newsdefault_list').css('display','none');
@@ -151,14 +151,16 @@ $(document).ready(function(){
 			//alert(NumberString);
 			console.log(arr);
 			$.ajax({method: "POST",
-				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
+				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
 				data: { name: NumberString },
 				success: function(result){
 				//alert(result);
 				//$('#default_list').css('display','none');	
 				$('#default_list').remove();
-				$('#current_list').html(result);	
+				$('#current_list').html(result);
+					
 				simplepage();
+				
 				}
 			});
 			
@@ -226,7 +228,7 @@ $('.map iframe').on('load', function(){
 			//alert(NumberString);
 			console.log(arr);
 			$.ajax({method: "POST",
-				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
+				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/searchnew.php",
 				data: { name: NumberString },
 				success: function(result){
 				//alert(result);
@@ -267,7 +269,7 @@ $('.map iframe').on('load', function(){
 			//alert(NumberString);
 			console.log(patentsarr);
 			$.ajax({method: "POST",
-				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
+				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_patents.php",
 				data: { pname: NumberString },
 				success: function(result){
 				//$('#patentsdefault_list').css('display','none');
@@ -305,7 +307,7 @@ $('.map iframe').on('load', function(){
 			//alert(NumberString);
 			console.log(newsarr);
 			$.ajax({method: "POST",
-				url: "http://localhost/syncthink/wp-content/themes/SyncThinkWordPressExpansion/search_news.php",
+				url: "http://syncthink.com/wp-content/themes/SyncThinkWordPressExpansion/search_news.php",
 				data: { nname: NumberString },
 				success: function(result){
 				//$('#newsdefault_list').css('display','none');	
