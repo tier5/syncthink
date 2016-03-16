@@ -34,7 +34,10 @@
 	<?php wp_head(); ?>
     
 <style>
-
+ #page-nav > ul {
+    height: 30px;
+    list-style: outside none none;
+}
 .light-theme a, .light-theme span {
 	float: left;
 	color: #fff !important;
