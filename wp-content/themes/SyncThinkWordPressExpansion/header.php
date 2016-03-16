@@ -26,14 +26,50 @@
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri()?>/vendor/dropdown/dropdown.css"/>
 	
 	<!-- App Styles -->
-	
-	<?php wp_head(); ?>
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri()?>/css/responsive.css" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_directory_uri()?>/css/simplePagination.css"/>
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri()?>/css/responsive.css" />
+    
 	<script src="<?php echo get_stylesheet_directory_uri()?>/js/jquery-2.0.3.min.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri()?>/js/jquery.simplePagination.js"></script>
     <script src="<?php echo get_stylesheet_directory_uri()?>/js/main.js"></script>
+	<?php wp_head(); ?>
+    
+<style>
 
+.light-theme a, .light-theme span {
+	float: left;
+	color: #fff !important;
+	font-size:14px;
+	line-height:24px;
+	font-weight: normal;
+	text-align: center;
+	border: 1px solid #BBB;
+	min-width: 14px;
+	padding: 0 7px;
+	margin: 0 5px 0 0;
+	border-radius: 3px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	background: #efefef; /* Old browsers */
+	background: -moz-linear-gradient(top, #666 0%, #666 100%) !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#666), color-stop(100%,#666)) !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #666 0%,#666 100%) !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #666 0%,#666 100%) !important; /* Opera11.10+ */
+	background: -ms-linear-gradient(top, #666 0%,#666 100%) !important; /* IE10+ */
+	background: linear-gradient(top, #666 0%,#666 100%) !important; /* W3C */
+}
+
+.light-theme a:hover {
+	text-decoration: none;
+	background: #FCFCFC !important;
+	color:#666 !important;
+}
+
+.light-theme .current {
+	background: #fff !important;
+	color: #666 !important;
+	box-shadow: none !important;
+	cursor: default;
+}
+</style>
 </head>
 <script type="text/javascript" src="//cdn.callrail.com/companies/252556179/37ebd9ff4c3a1e238a91/12/swap.js"></script>
 <body>
