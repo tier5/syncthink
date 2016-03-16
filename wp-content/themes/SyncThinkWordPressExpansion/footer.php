@@ -33,7 +33,7 @@
 								 <!-------form Contacts------->
 
 							
-<form onsubmit="$.post('http://http://52.21.87.236/form_submit.php', $('form').serialize(), function(){}); return false;" id="contact-form" class="form-validate form-validated" method="post" action="#section-contacts" novalidate="true">
+<form onsubmit="$.post('http://syncthink.com/form_submit.php', $('form').serialize(), function(){}); return false;" id="contact-form" class="form-validate form-validated" method="post" action="#section-contacts" novalidate="true">
 <header class="form-head">
 <h3>Contact us</h3>
 </header>
