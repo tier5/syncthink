@@ -1,22 +1,3 @@
-// ------- RESPONSIVE MENU ------ //
-//$(function() {
-//		var pull 		= $('#pull_menu');
-//			menu 		= $('.navigation ul.hdr_menu');
-//
-//			menuHeight	= menu.height();
-//
-//		pull.on('click', function(e) {
-//			e.preventDefault();
-//			menu.slideToggle();
-//		});
-//
-//		$(window).resize(function(){
-//			var w = $(window).width();
-//			if(w > 320 && menu.is(':hidden')) {
-//				menu.removeAttr('style');
-//			}
-//		});
-//	});
 
 /* --------------- STICKY HEADER -----------------*/
 
@@ -155,38 +136,7 @@ $(document).ready(function(){
 			
 				
 		});	
-	
-		
-		
-		
-    
-    
-/* --------------- TEAM BANNER -----------------*/
-var imgsrc = $('.team_bnr img').attr('src');
-$('.team_bnr img').css('opacity','0');
-$('.team_bnr').css('background-image','url('+imgsrc+')');
-$('.team_bnr').css('background-position','center');
-$('.team_bnr').css('background-size','cover');
-$('.map iframe').on('load', function(){
-    $('.place-card').css('display','none');
-    console.log('load the iframe',$('.place-card'))
-});
-
- $('.map iframe').addClass('scrolloff'); // set the pointer events to none on doc ready
-
-        $('.headq_wrap').on('click', function () {
-            $('.map iframe').removeClass('scrolloff'); // set the pointer events true on click
-        });
-
-        // you want to disable pointer events when the mouse leave the canvas area;
-
-        $(".map iframe").mouseleave(function () {
-            $('.map iframe').addClass('scrolloff'); // set the pointer events to none when mouse leaves the map area
-			});
-    
-		});
-		
-		$( document ).on( "click", ".tag_listresarch", function(f) {
+	$( document ).on( "click", ".tag_listresarch", function(f) {
 			f.preventDefault();
 			
 			//alert('hii');
